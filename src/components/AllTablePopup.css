@@ -1,0 +1,86 @@
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.692);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.showTable_popup-inner {
+  position: fixed;
+  padding: 30px;
+  width: 100%;
+  max-width: 640px;
+  max-height: 800px;
+  background-color: white;
+  z-index: -1;
+  overflow: scroll;
+  border-radius: 20px;
+}
+
+.showTable_popup-inner .close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+  font-weight: bold;
+  margin: 5px;
+  border-radius: 20px;
+  backdrop-filter: blur(3px);
+  background-color: rgb(255, 1, 1);
+  border-color: rgba(119, 0, 0, 0.171);
+  box-shadow: rgba(199, 4, 4, 0.199) 2px 8px 8px;
+  border: 4px rgba(255, 255, 255, 0.4) solid;
+}
+
+.showTable_popup-inner .close-btn:hover {
+  background-color: rgb(163, 165, 163);
+}
+
+.all-assignmentst-table {
+  text-align: center;
+}
+
+.prompt-container {
+  padding-top: 10px;
+}
+
+.button-container button {
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+  font-weight: bold;
+  margin: 5px;
+  border-radius: 20px;
+  backdrop-filter: blur(3px);
+}
+
+.delete-btn {
+  height: 50px;
+  background-color: rgba(255, 0, 0, 0.85);
+  border-color: rgba(119, 0, 0, 0.171);
+  box-shadow: rgba(199, 4, 4, 0.199) 2px 8px 8px;
+  border: 5px rgba(255, 255, 255, 0.4) solid;
+}
+
+.cancel-btn {
+  height: 50px;
+  background-color: rgba(175, 177, 175, 0.85);
+  border-color: rgba(1, 153, 21, 0.171);
+  box-shadow: rgba(209, 211, 210, 0.199) 2px 8px 8px;
+  border: 5px rgba(255, 255, 255, 0.4) solid;
+}
+
+.popup_checkbox-checkmark {
+  visibility: hidden;
+}
+.popup_checkbox-checkmark-paid {
+  visibility: hidden;
+}

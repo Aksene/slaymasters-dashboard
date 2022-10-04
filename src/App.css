@@ -65,6 +65,16 @@
   text-decoration: none;
   padding: 0.5rem 1rem;
   height: 100%;
+  gap: 10px;
+  border-radius: 20px;
+  backdrop-filter: blur(3px);
+  box-shadow: rgba(0, 0, 0, 0.1) 2px 8px 8px;
+  border: 5px rgba(255, 255, 255, 0.4) solid;
+}
+
+.nav-btn:hover {
+  background-color: #d10798;
+  border: 5px #e609a7 solid;
 }
 
 .header a {
@@ -307,6 +317,20 @@
   /* border: 3px solid green; */
   padding-top: 30px;
 }
+
+.updates-info {
+  text-align: center;
+}
+
+/* .glass-container {
+  background-color: rgb(241, 241, 241);
+  border-radius: 20px;
+} */
+
+.updates-info p {
+  color: black;
+}
+
 .updates-iframe {
   margin: 20px;
   width: 90%;
@@ -366,6 +390,12 @@ td {
   text-align: center;
 }
 
+.assignments-table {
+  border-radius: 10px;
+  box-shadow: rgba(148, 3, 100, 0.3) 2px 8px 8px;
+  /* border: 5px rgba(255, 255, 255, 0.4) solid; */
+}
+
 .tools-grid-container {
   display: grid;
   grid-template-columns: 1fr;
@@ -399,6 +429,39 @@ td {
   cursor: pointer;
   padding: 15px;
   font-weight: bold;
+  gap: 10px;
+  border-radius: 20px;
+  backdrop-filter: blur(3px);
+  box-shadow: rgba(148, 3, 100, 0.3) 2px 8px 8px;
+  border: 5px rgba(255, 255, 255, 0.4) solid;
+}
+
+.tools-grid-item button:hover {
+  background-color: #d10798;
+}
+
+.how_to_use_dash {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 3px solid green; */
+  grid-template-columns: auto;
+}
+
+.how_to_use_dash-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 3px solid green; */
+  grid-template-columns: auto;
+}
+
+.how_to_use_dash-video {
+  width: 700px;
+  height: 470px;
+  margin-bottom: 50px;
 }
 
 .training-videos-grid {
@@ -424,6 +487,7 @@ td {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  z-index: -1;
 }
 
 /* Hide the browser's default checkbox */
@@ -464,8 +528,18 @@ td {
   background-color: #2196f3;
 }
 
+.checkbox-container input:checked ~ .checkbox-checkmark-paid {
+  background-color: #2196f3;
+}
+
 /* Create the checkmark/indicator (hidden when not checked) */
 .checkbox-checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-checkmark-paid:after {
   content: "";
   position: absolute;
   display: none;
@@ -476,8 +550,24 @@ td {
   display: block;
 }
 
+.checkbox-container input:checked ~ .checkbox-checkmark-paid:after {
+  display: block;
+}
+
 /* Style the checkmark/indicator */
 .checkbox-container .checkbox-checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.checkbox-container .checkbox-checkmark-paid:after {
   left: 6px;
   top: 2px;
   width: 5px;
@@ -661,10 +751,22 @@ td {
 .uploadImages-layout {
   display: flex;
   margin: auto;
-  width: 85%;
+  width: 50%;
   /* border: 3px solid green; */
   padding: 10px;
   justify-content: center;
+}
+
+.uploadImages-form-grid {
+  margin: auto;
+  justify-content: center;
+  text-align: center;
+}
+
+.uploadImages-form-group-top {
+  margin: auto;
+  justify-content: center;
+  text-align: center;
 }
 
 .uploadImage-form-preview {
@@ -678,12 +780,20 @@ td {
 .uploadImages-form-button {
   /* padding: 5px; */
   width: 180px;
-  height: 50px;
+  height: 70px;
   background-color: var(--brand-color);
   color: white;
   border-color: var(--brand-color);
   cursor: pointer;
-  font-size: 1.3em;
+  font-weight: bold;
+  border-radius: 20px;
+  backdrop-filter: blur(3px);
+  box-shadow: rgba(148, 3, 100, 0.3) 2px 8px 8px;
+  border: 5px rgba(255, 255, 255, 0.4) solid;
+}
+
+.uploadImages-form-button:hover {
+  background-color: #d10798;
 }
 
 .uploadImages-form-button h3 {
@@ -693,7 +803,7 @@ td {
   transform: translate(0%, -50%);
 }
 
-.form-group-bottom {
+.uploadImages-form-group-bottom {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -701,6 +811,140 @@ td {
   /* border: 3px solid green; */
 }
 
+/* ----------------------------------------------------------------------- */
+
+/* ------------------------------------- Manage Assignments CSS ---------------------------------- */
+.manage-assignment-container {
+  /* text-align: center; */
+  padding-left: 20px;
+  padding-bottom: 40px;
+}
+.manage-assignment-table-container {
+  display: grid;
+  grid-template-columns: auto;
+  width: 95%;
+}
+
+.due-assignments-table h2 {
+  text-align: center;
+}
+
+.manage-assignments-btns button {
+  width: 180px;
+  height: 50px;
+  background-color: var(--brand-color);
+  color: white;
+  border-color: var(--brand-color);
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 20px;
+  box-shadow: rgba(148, 3, 100, 0.3) 2px 8px 8px;
+  border: 5px rgba(255, 255, 255, 0.4) solid;
+}
+
+.manage-assignments-btns button:hover {
+  background-color: #d10798;
+}
+
+.assignments-table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.add_assignments-btn {
+  margin-right: 10px;
+}
+
+.readOnly-edit_btn,
+.readOnly-delete_btn {
+  width: 85%;
+  color: white;
+  cursor: pointer;
+  padding: 2px;
+  font-weight: bold;
+  margin: 5px;
+  border-radius: 20px;
+}
+
+.readOnly-edit_btn {
+  background-color: rgba(0, 201, 27, 0.733);
+  /* border-color: rgba(0, 119, 16, 0.171); */
+  box-shadow: rgba(5, 209, 32, 0.199) 2px 8px 8px;
+  border: 3px rgba(255, 255, 255, 0.4) solid;
+}
+
+.readOnly-edit_btn:hover {
+  background-color: rgb(6, 247, 38);
+}
+
+.readOnly-delete_btn {
+  background-color: rgba(255, 0, 0, 0.733);
+  border-color: rgba(119, 0, 0, 0.171);
+  box-shadow: rgba(199, 4, 4, 0.199) 2px 8px 8px;
+  border: 3px rgba(255, 255, 255, 0.4) solid;
+}
+
+.readOnly-delete_btn:hover {
+  background-color: rgb(255, 0, 0);
+}
+
+.editable-save_btn,
+.editable-cancel_btn {
+  width: 85%;
+  color: white;
+  cursor: pointer;
+  padding: 2px;
+  font-weight: bold;
+  margin: 5px;
+  border-radius: 20px;
+}
+
+.editable-save_btn {
+  background-color: rgba(0, 201, 27, 0.733);
+  /* border-color: rgba(0, 119, 16, 0.171); */
+  box-shadow: rgba(5, 209, 32, 0.199) 2px 8px 8px;
+  border: 3px rgba(255, 255, 255, 0.4) solid;
+}
+
+.editable-save_btn:hover {
+  background-color: rgba(6, 247, 38, 0.733);
+}
+
+.editable-cancel_btn {
+  background-color: rgba(255, 0, 0, 0.733);
+  border-color: rgba(119, 0, 0, 0.171);
+  box-shadow: rgba(199, 4, 4, 0.199) 2px 8px 8px;
+  border: 3px rgba(255, 255, 255, 0.4) solid;
+}
+
+.editable-cancel_btn:hover {
+  background-color: rgb(255, 0, 0);
+}
+
+.editable-name_input,
+.editable-date_input {
+  width: 280px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.readOnly-other_btn {
+  width: 95%;
+  color: white;
+  cursor: pointer;
+  padding: 2px;
+  font-weight: bold;
+  margin: 3px;
+  border-radius: 20px;
+  background-color: var(--brand-color);
+  border-color: var(--brand-color);
+  box-shadow: rgba(148, 3, 100, 0.3) 2px 8px 8px;
+  border: 3px rgba(255, 255, 255, 0.4) solid;
+}
+
+.readOnly-other_btn:hover {
+  background-color: rgb(230, 9, 167);
+}
 /* ----------------------------------------------------------------------- */
 
 /* ------------------------------------- Footer CSS ---------------------------------- */

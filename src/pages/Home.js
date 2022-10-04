@@ -12,11 +12,11 @@ const Home = () => {
                         <h1 className="content-header">Time to Slay!</h1>
                     </div>
                     <div className="content-textfield">
-                        <p1>
+                        <p>
                             OUR TEAM APPREACITAES YOUR TALENT AND EFFORT IN MAKING #EVERYONEBEAUTY MORE THAN A HASHTAG.  LOGIN TO GET ALL THE TOOLS TO TEACH THE WORLD TO SLAY!                             <br></br>
                             <br></br>XO, 
 ​                            <br></br>SLAYMASTER TEAM  
-                        </p1>
+                        </p>
                     </div>
                     <div className="content-signin-button-container">
                         <div><Link to="/sign-in"><button className="home-signin-button">SIGN IN</button></Link></div>

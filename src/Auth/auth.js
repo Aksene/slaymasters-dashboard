@@ -17,11 +17,13 @@ function useProviderAuth() {
     // If we are logged in return the user object
     // Create useState for user 
     const [user, setUser] = useState(null)
+    const [isAdmin, setIsAdmin] = useState()
+
 
     // Then declare the login & logout function
     const Login = async (email) => {
         const {error, user} = await supabase.auth.signIn({email})
-
+        localStorage.setItem("user", JSON.stringify({role: 'ADMIN'}))
         if(error) {
             console.log(error)
         }
@@ -38,7 +40,7 @@ function useProviderAuth() {
         }
 
         setUser(null)
-
+        localStorage.clear();
     }
 
     useEffect(() => {
