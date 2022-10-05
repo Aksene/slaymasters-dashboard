@@ -35,11 +35,52 @@ const Layout = ({children}) => {
             }
             if(data){
                 setUserInfo(data)
-                const userId = data.map(({isAdmin}) => isAdmin);
+                const userRole = data.map(({isAdmin}) => isAdmin);
                 let r = ""
-                userId.forEach(role => r = role)
+                userRole.forEach(role => r = role)
                 setUserRole(r)
             }
+    }
+
+    const showAdminTabs = () => {        
+            return (
+                userRole ?
+                    <>
+                        {
+                            userRole ?
+                            <div>
+                                {/* {console.log("Navbar check passed", userRole)} */}
+                                <li className="nav-item">
+                                    <Link className={showMenu ? 'nav-links active' : 'nav-links'} to={"/manage-assignments"} onClick={closeMobileMenu}>
+                                        Manage Assignments
+                                    </Link>
+                                </li> 
+                            </div>
+                            : ""
+                        }
+                        {
+                            userRole ?
+                            <div>
+                                {/* {console.log("Navbar check passed", userRole)} */}
+                                <li className="nav-item">
+                                    <Link className={showMenu ? 'nav-links active' : 'nav-links'} to={"/playground"} onClick={closeMobileMenu}>
+                                        Dev Playground
+                                    </Link>
+                                </li>
+                            </div>
+                            : ""
+                        }
+
+                        <li className="nav-item">
+                            <Link className={showMenu ? 'nav-links active' : 'nav-links'} to={"/testing"} onClick={closeMobileMenu}>
+                                Chat
+                            </Link>
+                        </li>
+                    </>
+            : ""
+            )
+        
+        
     }
 
     
@@ -47,7 +88,6 @@ const Layout = ({children}) => {
     // console.log("User role isAdmin:", userRole)
 
 
-    if (userRole === true){
         return (
             <div>
                 <header className="header">
@@ -87,35 +127,9 @@ const Layout = ({children}) => {
                                             Creator Dashboard
                                         </Link>
                                     </li>
-                                    {
-                                        userRole ?
-                                        <div>
-                                            {/* {console.log("Navbar check passed", userRole)} */}
-                                            <li className="nav-item">
-                                                <Link className={showMenu ? 'nav-links active' : 'nav-links'} to={"/manage-assignments"} onClick={closeMobileMenu}>
-                                                    Manage Assignments
-                                                </Link>
-                                            </li> 
-                                        </div>
-                                        : ""
-                                    }
-                                    {
-                                        userRole ?
-                                        <div>
-                                            {/* {console.log("Navbar check passed", userRole)} */}
-                                            <li className="nav-item">
-                                                <Link className={showMenu ? 'nav-links active' : 'nav-links'} to={"/playground"} onClick={closeMobileMenu}>
-                                                    Dev Playground
-                                                </Link>
-                                            </li>
-                                        </div>
-                                        : ""
-                                    }
-                                    <li className="nav-item">
-                                        <Link className={showMenu ? 'nav-links active' : 'nav-links'} to={"/testing"} onClick={closeMobileMenu}>
-                                            Chat
-                                        </Link>
-                                    </li>
+
+                                    {showAdminTabs()}
+
                                     <li onClick={closeMobileMenu} className="nav-item">
                                         <button className='nav-btn' onClick={auth.Logout} to={"/log-out"}>Log-out</button>
                                     </li>
@@ -168,7 +182,7 @@ const Layout = ({children}) => {
                 
             </div>
         )
-    }
 }
+
 
 export default Layout

@@ -63,7 +63,7 @@ function SignIn() {
                 <h1 className="signin-header">SIGN-IN</h1>
 
                 <form  onSubmit={handleSignIn}>
-                    Email: <input type="email" value={email} placeholder="Please enter email here" onChange={e => setEmail(e.target.value)} />
+                    Email: <input className="signin-email_input" type="email" value={email} placeholder="Please enter email here" onChange={e => setEmail(e.target.value)} />
                     <button className="signin-form-button" type="submit"><h3>SUBMIT</h3></button>
                 </form>
             </div>

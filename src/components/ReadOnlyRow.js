@@ -42,9 +42,9 @@ function ReadOnlyRow ( {assignment, index, showPopup, handleActionClick, handleE
             return <h4>{video}</h4>
         }else{
             return (
-                <Link className="assignments-table-links" to={`//${link}`} target='_blank'>
+                <a className="assignments-table-links" href={link} target='_blank'>
                     <h4>{video}</h4>
-                </Link>  
+                </a> 
             )
         }
         
